@@ -1,7 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-homepage: "/react-tic-tac-toe";
+import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
+	base: "/react-tic-tac-toe/",
 	plugins: [react()],
+
+	resolve: {
+		alias: {
+			"@assets": path.resolve(__dirname, "./src/assets"),
+			"@components": path.resolve(__dirname, "./src/components"),
+			"@public": path.resolve(__dirname, "./public"),
+		},
+	},
 });
